@@ -1,4 +1,11 @@
 import { Link } from "react-router-dom";
+/**
+ * This component displays a footer for the website that with react-router-dom shows shortcuts to the pages of the application.
+ * It also has links to the creators GitHub and Linkedin profiles.
+ * React Router DOM:
+ * - Links used for shortcuts to different pages
+ */
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (

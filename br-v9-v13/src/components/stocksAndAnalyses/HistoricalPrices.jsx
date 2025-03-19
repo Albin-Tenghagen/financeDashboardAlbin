@@ -11,6 +11,26 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+/**
+ * HistoricalPrices.jsx
+ *
+ * This component fetches and displays a historical line chart of
+ * Apple’s stock prices since the year 2000 using Redux Toolkit and Recharts.
+ *
+ * Redux:
+ * - Dispatches `fetchHistoricalPrices()` on mount if no data exists.
+ * - Selects `data`, `status`, and `error` from `state.historicalPrices`.
+ *
+ * States handled:
+ * - Loading: Shows loading message.
+ * - Error: Shows error message.
+ * - Success: Renders <LineChart /> filtered by year and index interval.
+ *
+ * Chart Features:
+ * - Y-axis: Price in USD.
+ * - X-axis: Date (formatted MM/YYYY).
+ * - Skips some data points to improve readability.
+ */
 
 function HistoricalPrices() {
   const dispatch = useDispatch();

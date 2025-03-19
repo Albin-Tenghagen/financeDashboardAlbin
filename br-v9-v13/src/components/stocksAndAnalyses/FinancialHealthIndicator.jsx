@@ -1,6 +1,26 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchKeyMetrics } from "../../Reducers/keyMetricsSlice";
+/**
+ * FinancialHealthIndicator.jsx
+ *
+ * This component displays color-coded financial health metrics
+ * based on defined thresholds for each metric.
+ *
+ * Redux:
+ * - Dispatches `fetchKeyMetrics()` on mount.
+ * - Selects `data`, `status`, and `error` from `state.keyMetrics`.
+ *
+ * States handled:
+ * - Loading: Shows loading message.
+ * - Error: Shows error message.
+ * - Empty: Shows fallback text.
+ * - Success: Lists key metrics with conditional color styling.
+ *
+ * Features:
+ * - Dynamically colors metrics (Green, Yellow, Red) based on thresholds.
+ * - Metrics displayed: Current Ratio, Debt to Equity, ROE, Net Debt to EBITDA, Earnings Yield, Free Cash Flow Yield.
+ */
 
 const getIndicatorColor = (value, goodThreshold, warningThreshold) => {
   if (value >= goodThreshold) return "text-green-500";

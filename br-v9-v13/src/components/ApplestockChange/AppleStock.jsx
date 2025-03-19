@@ -1,7 +1,18 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchStockPriceChange } from "../../Reducers/AppleSlice";
-
+/**
+ * AppleStock.jsx
+ * This component fetches and displays the Apple stock price change over a time up to 10 years using redux Toolkit
+ *
+ * Redux:
+ * - Dispatches fetchStockPriceChange when mounted
+ *
+ * States handled:
+ * - loading: shows loading message
+ * - error: Shows error message
+ * - succes: renders the stock price points in <li> elements
+ */
 const AppleStock = () => {
   const dispatch = useDispatch();
   const { priceChange, loading, error } = useSelector((state) => state.stock);
@@ -21,7 +32,7 @@ const AppleStock = () => {
   if (loading) return <p>Loading AAPL price change...</p>;
   if (error) return <p>Error: {error}</p>;
   if (!priceChange || Object.keys(priceChange).length === 0) {
-    return <p>No price change data available.</p>;
+    return <p>No price change data available at this time.</p>;
   }
 
   return (

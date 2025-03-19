@@ -12,7 +12,26 @@ import {
   ReferenceLine,
   ResponsiveContainer,
 } from "recharts";
-
+/**
+ * HistoricalComparisonComponent.jsx
+ *
+ * This component fetches and displays historical key financial metrics
+ * in a dynamic line chart using Recharts and Redux Toolkit.
+ *
+ * Redux:
+ * - Dispatches `fetchKeyMetrics()` on mount.
+ * - Selects `data`, `status`, and `error` from `state.keyMetrics`.
+ *
+ * States handled:
+ * - Loading: Shows loading message.
+ * - Error: Shows error message.
+ * - Empty: Shows fallback text.
+ * - Success: Renders a <LineChart /> with a reference benchmark line.
+ *
+ * Features:
+ * - Dropdown select to switch between different financial metrics (e.g. Current Ratio, ROE, etc).
+ * - Dynamically updates chart based on selected metric.
+ */
 function HistoricalComparisonComponent() {
   const dispatch = useDispatch();
   const { data, status, error } = useSelector((state) => state.keyMetrics);

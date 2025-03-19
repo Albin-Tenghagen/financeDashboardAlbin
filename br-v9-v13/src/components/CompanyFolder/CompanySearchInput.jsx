@@ -1,16 +1,32 @@
-import React from 'react';
-
-function CompanySearchInput({ 
-  query, 
-  handleSearch, 
-  showDropdown, 
-  filteredCompanies, 
-  fetchCompanyDetails, 
-  setShowDropdown, 
-  error
+import React from "react";
+/**
+ * CompanySearchInput.jsx
+ *
+ * A search input component with a dynamic dropdown list.
+ *
+ * Props:
+ * @param {string} query - Current search input text
+ * @param {function} handleSearch - Function to filter companies
+ * @param {boolean} showDropdown - Whether to show dropdown
+ * @param {Array} filteredCompanies - Filtered company suggestions
+ * @param {function} fetchCompanyDetails - Function to fetch selected company data
+ * @param {function} setShowDropdown - Function to control dropdown visibility
+ * @param {string} error - Error message to show below input
+ */
+function CompanySearchInput({
+  query,
+  handleSearch,
+  showDropdown,
+  filteredCompanies,
+  fetchCompanyDetails,
+  setShowDropdown,
+  error,
 }) {
   return (
-    <form className="relative w-full max-w-md mx-auto" onSubmit={(e) => e.preventDefault()}>
+    <form
+      className="relative w-full max-w-md mx-auto"
+      onSubmit={(e) => e.preventDefault()}
+    >
       <label htmlFor="company-search" className="sr-only">
         Search for companies
       </label>
@@ -27,13 +43,13 @@ function CompanySearchInput({
         placeholder="Search here"
         aria-label="Search for companies"
       />
-      
+
       {/* Dropdown */}
       {showDropdown && filteredCompanies.length > 0 && (
         <ul className="absolute w-full bg-white border border-gray-300 rounded-lg mt-1 max-h-60 overflow-auto z-50 shadow-md">
           {filteredCompanies.map((company) => (
-            <li 
-              key={company.symbol} 
+            <li
+              key={company.symbol}
               onClick={() => {
                 fetchCompanyDetails(company.symbol);
                 setShowDropdown(false); // Dropdown closes after user choice
@@ -47,9 +63,7 @@ function CompanySearchInput({
       )}
 
       {/* error message under input*/}
-      {error && (
-        <div className="text-red-600 mt-2 text-center">{error}</div>
-      )}
+      {error && <div className="text-red-600 mt-2 text-center">{error}</div>}
     </form>
   );
 }

@@ -1,14 +1,30 @@
-import React, { useState } from 'react';
-import CompanySearchInput from '../components/CompanyFolder/CompanySearchInput';
-import CompanyCard from '../components/CompanyFolder/CompanyCard';
-import nasdaqCompanies from '../components/CompanyFolder/NasdaqCompanies';
-
+import React, { useState } from "react";
+import CompanySearchInput from "../components/CompanyFolder/CompanySearchInput";
+import CompanyCard from "../components/CompanyFolder/CompanyCard";
+import nasdaqCompanies from "../components/CompanyFolder/NasdaqCompanies";
+/**
+ * Company.jsx
+ *
+ * Main parent component for the Nasdaq Company Search feature.
+ * - Integrates CompanySearchInput (search bar with dropdown)
+ * - Integrates CompanyCard (rendered cards of selected companies)
+ *
+ * State management:
+ * - query: current search input value
+ * - selectedCompanies: array of selected company objects
+ * - showDropdown: boolean to toggle dropdown visibility
+ * - filteredCompanies: list of companies matching search
+ * - error: string for displaying API or input errors
+ *
+ * API used:
+ * Financial Modeling Prep - /profile endpoint
+ */
 function Company() {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [selectedCompanies, setSelectedCompanies] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
   const [filteredCompanies, setFilteredCompanies] = useState([]);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const apiKey = "TLoYbueDL9RUs9JZfiIKmp7uBFSilOzk";
   const apiUrl = "https://financialmodelingprep.com/api/v3/profile/";
@@ -18,9 +34,10 @@ function Company() {
     setQuery(searchQuery);
 
     if (searchQuery) {
-      const filtered = nasdaqCompanies.filter((company) =>
-        company.name.toLowerCase().startsWith(searchQuery.toLowerCase()) ||
-        company.symbol.toLowerCase().startsWith(searchQuery.toLowerCase())
+      const filtered = nasdaqCompanies.filter(
+        (company) =>
+          company.name.toLowerCase().startsWith(searchQuery.toLowerCase()) ||
+          company.symbol.toLowerCase().startsWith(searchQuery.toLowerCase())
       );
       setFilteredCompanies(filtered);
       setShowDropdown(filtered.length > 0);
@@ -32,36 +49,42 @@ function Company() {
 
   // Fetch company details via API
   const fetchCompanyDetails = async (companySymbol) => {
-    setError('');  // Reset previous error messages
+    setError(""); // Reset previous error messages
     try {
-      const response = await fetch(`${apiUrl}${companySymbol}?apikey=${apiKey}`);
-      
+      const response = await fetch(
+        `${apiUrl}${companySymbol}?apikey=${apiKey}`
+      );
+
       // Check if the response from API is not ok
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error("Network response was not ok");
       }
-      
+
       const data = await response.json();
-      
+
       if (data && data.length > 0) {
         const companyData = data[0];
-        
+
         setSelectedCompanies((prevCompanies) => {
-          if (!prevCompanies.some((company) => company.symbol === companyData.symbol)) {
+          if (
+            !prevCompanies.some(
+              (company) => company.symbol === companyData.symbol
+            )
+          ) {
             return [...prevCompanies, companyData];
           }
           return prevCompanies;
         });
-  
-        setQuery('');
+
+        setQuery("");
         setShowDropdown(false);
       } else {
-        setError('No company details found for the current search, try again');
+        setError("No company details found for the current search, try again");
       }
     } catch (error) {
       // Catch both network errors and other API-related issues
-      console.error('Error fetching company data:', error);
-      setError('Something went wrong. Try again later.');
+      console.error("Error fetching company data:", error);
+      setError("Something went wrong. Try again later.");
     }
   };
 
@@ -86,14 +109,18 @@ function Company() {
           filteredCompanies={filteredCompanies}
           fetchCompanyDetails={fetchCompanyDetails}
           setShowDropdown={setShowDropdown}
-          error={error} 
+          error={error}
         />
       </section>
 
       <section className="mt-6 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
         {/* Loop through selected companies and render a card */}
         {selectedCompanies.map((company) => (
-          <CompanyCard key={company.symbol} company={company} removeCompany={removeCompany} />
+          <CompanyCard
+            key={company.symbol}
+            company={company}
+            removeCompany={removeCompany}
+          />
         ))}
       </section>
     </main>

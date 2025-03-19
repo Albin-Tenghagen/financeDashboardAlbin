@@ -2,7 +2,22 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchNews } from "../../Reducers/NewsAPISlice";
 import NewsItem from "./NewsItem";
-
+/**
+ * BusinessNewsSection.jsx
+ *
+ * This component fetches and displays the latest business/economic news
+ * using Redux Toolkit and a child component called <NewsItem />.
+ *
+ * Redux:
+ * - Dispatches `fetchNews()` when mounted.
+ * - Selects `news`, `loading`, and `error` from the Redux state.
+ *
+ * States handled:
+ * - Loading: shows loading message
+ * - Error: shows error message
+ * - Empty: shows fallback text
+ * - Success: maps over articles and renders <NewsItem />
+ */
 function BusinessNewsSection() {
   const dispatch = useDispatch();
   const { news, loading, error } = useSelector((state) => state.news);

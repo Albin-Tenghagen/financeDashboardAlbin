@@ -1,5 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+/**
+ * This component is a child of the Header components. Here in lies the navigation for the website that includes all the different pages. it uses react-router-dom
+ *
+ * React Router DOM:
+ * - Navlink: is used to navigate through the applications different pages
+ */
 function Navbar() {
   return (
     <nav className="flex flex-row justify-evenly ">

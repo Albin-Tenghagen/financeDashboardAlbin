@@ -1,7 +1,3 @@
-import React, { useState } from "react";
-import CompanySearchInput from "../components/CompanyFolder/CompanySearchInput";
-import CompanyCard from "../components/CompanyFolder/CompanyCard";
-import nasdaqCompanies from "../components/CompanyFolder/NasdaqCompanies";
 /**
  * Company.jsx
  *
@@ -19,6 +15,11 @@ import nasdaqCompanies from "../components/CompanyFolder/NasdaqCompanies";
  * API used:
  * Financial Modeling Prep - /profile endpoint
  */
+import React, { useState } from "react";
+import CompanySearchInput from "../components/CompanyFolder/CompanySearchInput";
+import CompanyCard from "../components/CompanyFolder/CompanyCard";
+import nasdaqCompanies from "../components/CompanyFolder/NasdaqCompanies";
+
 function Company() {
   const [query, setQuery] = useState("");
   const [selectedCompanies, setSelectedCompanies] = useState([]);

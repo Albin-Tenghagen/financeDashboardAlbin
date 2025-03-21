@@ -38,7 +38,7 @@ function BusinessNewsSection() {
   }
 
   return (
-    <section className="flex flex-row flex-wrap justify-center items-start">
+    <section className="w-11/12 flex flex-row flex-wrap justify-center items-start">
       <h3 className="w-full text-center text-3xl md:text-4xl font-bold">
         The latest news in economy
       </h3>

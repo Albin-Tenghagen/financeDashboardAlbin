@@ -11,20 +11,21 @@ function Navbar() {
     <nav className="flex flex-row justify-evenly ">
       <NavLink
         to="/"
-        className="rounded-2xl px-4 py-3 m-2 bg-yellow-500 hover:bg-yellow-300 cursor-pointer "
+        className="card-hover-effect rounded-2xl px-4 py-3 m-2 bg-yellow-500 hover:bg-yellow-300 cursor-pointer "
       >
         {" "}
         Home
       </NavLink>
       <NavLink
         to="/StocksAndA"
-        className="rounded-2xl px-4 py-3 m-2 bg-yellow-500 hover:bg-yellow-300 cursor-pointer"
+        className="card-hover-effect rounded-2xl px-4 py-3 m-2 bg-yellow-500 hover:bg-yellow-300 cursor-pointer"
       >
-        Stock Charts
+        <span className="hidden sm:inline">Stock Charts</span>
+        <span className="inline sm:hidden">Charts</span>
       </NavLink>
       <NavLink
         to="/company"
-        className="rounded-2xl px-4 py-3 m-2 bg-yellow-500 hover:bg-yellow-300 cursor-pointer text"
+        className="card-hover-effect rounded-2xl px-4 py-3 m-2 bg-yellow-500 hover:bg-yellow-300 cursor-pointer text"
       >
         {" "}
         Company

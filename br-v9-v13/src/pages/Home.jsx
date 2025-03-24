@@ -21,21 +21,29 @@ function Home() {
   const [showCompanies, setShowCompanies] = useState(false);
 
   function nasdaqDropdown() {
-    setShowCompanies(!showCompanies); // toggle open/close
+    // setShowCompanies(true); // toggle open/close
+    console.log(nasdaqCompanies);
+    if (showCompanies === false) {
+      setShowCompanies(true);
+    } else {
+      setShowCompanies(false);
+    }
   }
-
+  function fetchStock() {
+    setShowCompanies(false);
+  }
   function fetchStock() {}
   return (
-    <main className="flex flex-col justify-center items-center bg-[#faebd7]">
+    <main className="flex flex-col  justify-center items-center bg-primary">
       <p className="opacity-0">Denna sida suckaaaasssss</p>
       <AppleStock />
       <button
         onClick={nasdaqDropdown}
-        className="flex items-center justify-start gap-2 text-xl font-semibold rounded-2xl px-4 py-3 m-2 mb-20 bg-yellow-500 hover:bg-yellow-300 cursor-pointer"
+        className="flex card-hover-effect gap-2 text-xl font-semibold rounded-2xl px-4 py-3 m-2 mb-20 bg-yellow-500 hover:bg-yellow-300 cursor-pointer"
       >
         {showCompanies ? "Hide NASDAQ stocks" : "Show more NASDAQ stocks"}
         <img
-          className="w-8 h-8"
+          className="w-8 h-8 font-text"
           src={showCompanies ? "/Icons/Arrow-up.png" : "/Icons/Arrow-down.png"}
           alt=""
         />
@@ -47,8 +55,8 @@ function Home() {
             .map((company) => (
               <li
                 tabIndex="0"
-                className="text-xl font-semibold rounded-2xl px-4 py-3 m-2  bg-yellow-500 hover:bg-yellow-300 cursor-pointer"
-                onClick={fetchStock()}
+                className=" card-hover-effect font-text text-xl font-semibold rounded-2xl px-4 py-3 m-2  bg-yellow-500 hover:bg-yellow-300 cursor-pointer"
+                onClick={fetchStock}
                 key={company.name}
               >
                 {company.name}

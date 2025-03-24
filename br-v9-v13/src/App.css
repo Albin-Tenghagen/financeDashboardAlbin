@@ -1,7 +1,8 @@
-@import "tailwindcss";
+/* @import "tailwindcss";
 
-at-theme {
-  --color-primary: #faebd7;
+@theme {
+  --color-primary: #f7fff6;
+  --color-secondary: #bcebcb;
   --font-title: copperplate;
   --font-text: tahoma;
-}
+} */

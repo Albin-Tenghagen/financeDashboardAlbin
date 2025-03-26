@@ -33,13 +33,13 @@ Vi använde oss av Vite, React, React-router, redux-toolkit, Tailwind, Rechats.
 - AppleSlice.js har blivit stockSlice.js
 - NasdaqStockChange.jsx lades till för att faccilitera en dropdown meny som möjliggör att välja ytterligare aktier att fetcha från samma endpoint
 
-* Vid rendering så hämtas AAPL fortfarande och renderas som SpecificStock
+- Vid rendering så hämtas AAPL fortfarande och renderas som SpecificStock
 
-* under den komponententen finns en knapp som kallar på nasdaqDropdown funktionen.
+- under den komponententen finns en knapp som kallar på nasdaqDropdown funktionen.
   Som ändrar ett lokalt state som heter showcompanies. När den blir true
   Så renderas ett <li> element för varje företag i filen NasdaqCompanies.jsx(Vilket är en array med object som har keysen name & symbol)
 
-* När man klickar på en av dessa <li> elementen så kallas funktion fetchStock med symbolen som <li> elementet representerar
+- När man klickar på en av dessa <li> elementen så kallas funktion fetchStock med symbolen som <li> elementet representerar
   som först kollar om arrayen companyCards innehåller den symbolen redan.
 
 1. Om den inte gör det så tillägs symbolen i Companycards, updaterar statet Snackbar(Som är en liten popup med info för användaren som "searching for stock symbol") och sedan kollapsar ner <li> elemntent genom att sätta staten till false.

@@ -69,7 +69,6 @@ const nasdaqCompanies = [
   { name: "Twilio", symbol: "TWLO" },
   { name: "MongoDB", symbol: "MDB" },
   { name: "Cloudflare", symbol: "NET" },
-  { name: "Volvo", symbol: "VOLV" },
 ];
 
 export default nasdaqCompanies;

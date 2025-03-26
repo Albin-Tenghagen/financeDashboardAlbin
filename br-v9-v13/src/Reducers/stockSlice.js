@@ -1,7 +1,6 @@
-// store/stockSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-const API_KEY = "ihSjwD1zetWBa6IdDZPyteD1fw0DihGa";
+const API_KEY = "TLoYbueDL9RUs9JZfiIKmp7uBFSilOzk";
 const BASE_URL = "https://financialmodelingprep.com/api/v3";
 
 // Async thunk for stock price change (AAPL)
@@ -13,7 +12,7 @@ export const fetchStockPriceChange = createAsyncThunk(
         `${BASE_URL}/stock-price-change/${company}?apikey=${API_KEY}`
       );
       const data = await response.json();
-      return data[0] || {}; // API returns an array with a single object for AAPL
+      return data[0] || {};
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -23,8 +22,8 @@ export const fetchStockPriceChange = createAsyncThunk(
 const stockSlice = createSlice({
   name: "stock",
   initialState: {
-    priceChanges: {}, // Store multiple stocks in an object
-    loading: false,
+    priceChanges: {},
+    loading: {},
     error: null,
   },
   reducers: {},

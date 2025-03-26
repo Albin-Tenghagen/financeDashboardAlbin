@@ -99,7 +99,7 @@ function Company() {
   return (
     <main className="w-full min-h-screen p-4 bg-primary">
       <header className="text-center mb-6">
-        <h1 className="text-4xl font-bold">Nasdaq Company Search</h1>
+        <h2 className="text-4xl font-bold">Nasdaq Company Search</h2>
       </header>
 
       <section>

@@ -4,15 +4,22 @@
   --color-primary: #faebd7;
   --color-secondary: #2d86d0;
   --color-accent: #fcf3e7;
+  --color-interactive: #eab308;
+  --color-active: #fcd34d;
   --font-title: speciel-elite;
   --font-text: Passion-one;
 }
 /* styles.css */
 .card-hover-effect {
-  @apply transition-transform duration-300 ease-in-out hover:scale-105;
+  @apply transition-transform duration-300 ease-in-out hover:scale-105 focus:outline-none focus:ring-4  focus:ring-secondary;
 }
+
+.button-focus-effect {
+  @apply transition-transform duration-300 ease-in-out  hover:bg-active hover:ring-4 hover:ring-secondary hover:cursor-pointer hover:scale-105 focus:outline-none focus:ring-4   focus:ring-secondary;
+}
+
 .link-hover-effect {
-  @apply hover:border-b-2 hover:border-white transition-all duration-200;
+  @apply hover:border-b-2 hover:border-accent transition-all duration-200;
   display: inline-block; /* Ensures the border is only around the text */
   padding-bottom: 2px; /* Prevents extra space between text and border */
 }

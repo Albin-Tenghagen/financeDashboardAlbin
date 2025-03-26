@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import historicalPricesReducer from "../Reducers/historicalPricesSlice";
 import keyMetricsReducer from "../Reducers/keyMetricsSlice";
-import stockReducer from "../Reducers/AppleSlice"; // Import the stock slice
+import stockReducer from "../Reducers/stockSlice"; // Import the stock slice
 import newsReducer from "../Reducers/NewsAPISlice";
 const store = configureStore({
   reducer: {

@@ -24,24 +24,26 @@ function NewsItem({ new: newsItem }) {
       <figure className="w-full flex justify-center items-center mb-4">
         <img
           className="max-w-full max-h-64 object-contain mx-auto"
-          src={newsItem.urlToImage}
-          alt={newsItem.title}
+          src={newsItem.urlToImage || "/Alt.png"}
+          alt="News Image"
         />
       </figure>
 
-      <p className="italic text-sm text-center">
+      <time className="italic text-sm text-center">
         {newsItem.publishedAt.replace("T", " ").replace("Z", " ")}
-      </p>
+      </time>
       <p className="font-text mb-2">{newsItem.description}</p>
-      <p className="relative font-semibold">Full article:</p>
-      <a
-        className="font-text italic underline break-words"
-        href={newsItem.url}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {domain}
-      </a>
+      <span>
+        <p className="relative font-semibold mb-1">Full article:</p>
+        <a
+          className="font-text italic underline break-words"
+          href={newsItem.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {domain}
+        </a>
+      </span>
     </article>
   );
 }

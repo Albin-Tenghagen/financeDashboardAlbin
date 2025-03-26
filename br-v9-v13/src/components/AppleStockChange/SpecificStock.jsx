@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchStockPriceChange } from "../../Reducers/AppleSlice";
+
 /**
- * AppleStock.jsx
+ * SpecificStock.jsx
  * This component fetches and displays the Apple stock price change over a time up to 10 years using redux Toolkit
  *
  * Redux:
@@ -13,32 +13,27 @@ import { fetchStockPriceChange } from "../../Reducers/AppleSlice";
  * - error: Shows error message
  * - succes: renders the stock price points in <li> elements
  */
-const AppleStock = () => {
-  const dispatch = useDispatch();
-  const { priceChange, loading, error } = useSelector((state) => state.stock);
-
-  useEffect(() => {
-    dispatch(fetchStockPriceChange());
-  }, []);
+const SpecificStock = ({ stock }) => {
+  const { loading, error } = useSelector((state) => state.stock);
+  const priceChange = stock; // Now correctly referencing the stock data
 
   const getIndicatorColor = (value) => {
     if (value > 0) return "text-green-500";
     if (value < 0) return "text-red-500";
     return "text-yellow500";
   };
-  // Logging priceChange to see what it contains
-  console.log("Apple stock", priceChange);
-  // Add defensive checks before accessing the priceChange data
-  if (loading) return <p>Loading AAPL price change...</p>;
+  if (loading) return <p>Loading {stock.symbol} price change...</p>;
   if (error) return <p>Error: {error}</p>;
   if (!priceChange || Object.keys(priceChange).length === 0) {
     return <p>No price change data available at this time.</p>;
   }
 
+  console.log("Price Change Data:", priceChange);
+
   return (
-    <section className="card-hover-effect w-11/12 flex flex-col mt-7 mb-7 p-3.5 justify-center items-center box-content shadow-lg bg-accent rounded-md">
-      <h2 className=" font-title font-bold text-3xl md:text-4xl lg:text-5xl justify-center items-center">
-        AAPL Stock Price Change over time
+    <section className="card-hover-effect md:w-5/12 md:m-3 lg:max-w-5/12 flex flex-col m-5 p-3.5 justify-center items-center box-content shadow-lg bg-accent rounded-md ">
+      <h2 className=" font-title font-bold text-2xl md:text-2xl lg:text-3xl justify-center items-center">
+        {stock.symbol} Stock Price Change over time
       </h2>
 
       <ul className="flex flex-row flex-wrap m-2 p-2 gap-1 justify-center items-center">
@@ -113,4 +108,4 @@ const AppleStock = () => {
   );
 };
 
-export default AppleStock;
+export default SpecificStock;

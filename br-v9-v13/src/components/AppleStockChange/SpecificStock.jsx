@@ -3,15 +3,16 @@ import { useDispatch, useSelector } from "react-redux";
 
 /**
  * SpecificStock.jsx
- * This component fetches and displays the Apple stock price change over a time up to 10 years using redux Toolkit
+ * This component fetches and displays NASDAQ stock price change over a time up to 10 years using redux Toolkit
  *
  * Redux:
  * - Dispatches fetchStockPriceChange when mounted
  *
+ *
  * States handled:
  * - loading: shows loading message
  * - error: Shows error message
- * - succes: renders the stock price points in <li> elements
+ * - stock: renders the stock price points in <li> elements
  */
 const SpecificStock = React.memo(({ stock, removeStock }) => {
   const { error } = useSelector((state) => state.stock);
@@ -38,13 +39,25 @@ const SpecificStock = React.memo(({ stock, removeStock }) => {
         Loading {stock.symbol} price change...
       </p>
     );
-  if (error) return <p>Error: {error}</p>;
+  if (error)
+    return (
+      <p className="card-hover-effect md:w-5/12 md:m-3  flex flex-col m-5 p-3.5 justify-center items-center box-content shadow-lg bg-accent rounded-md ">
+        Error: {error}
+      </p>
+    );
   if (!priceChange || Object.keys(priceChange).length === 0) {
-    return <p>No price change data available at this time.</p>;
+    return (
+      <p className="card-hover-effect md:w-5/12 md:m-3  flex flex-col m-5 p-3.5 justify-center items-center box-content shadow-lg bg-accent rounded-md ">
+        No price change data available at this time.
+      </p>
+    );
   }
 
   return (
-    <section className="card-hover-effect relative md:w-5/12 md:m-3  flex flex-col m-5 p-3.5 justify-center items-center box-content shadow-lg bg-accent rounded-md ">
+    <article
+      tabIndex="0"
+      className="card-hover-effect relative md:w-5/12 md:m-3  flex flex-col m-5 p-3.5 justify-center items-center box-content shadow-lg bg-accent rounded-md "
+    >
       <button
         onClick={() => removeStock(stock.symbol)}
         className="button-focus-effect bg-interactive absolute top-2 right-2  rounded-full w-8 h-8 flex items-center justify-center transition transform hover:scale-110 shadow-lgs"
@@ -124,7 +137,7 @@ const SpecificStock = React.memo(({ stock, removeStock }) => {
           </span>
         </li>
       </ul>
-    </section>
+    </article>
   );
 });
 

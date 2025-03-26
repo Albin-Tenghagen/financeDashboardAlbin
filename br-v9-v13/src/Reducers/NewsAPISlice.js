@@ -1,3 +1,16 @@
+/**
+ * newsSlice.js
+ * This reducer manages the fetching and storing of top business news using Redux Toolkit.
+ * It uses the `fetchNews` async thunk to fetch data from the News API.
+ *
+ * Redux:
+ * - Dispatches `fetchNews` when triggered (typically by a component).
+ *
+ * States handled:
+ * - `loading`: Tracks whether the news data is being fetched. Displays a loading state while the API request is in progress.
+ * - `error`: Stores any error message if the fetch operation fails (e.g., network issues or API errors).
+ * - `news`: Holds the fetched news data after the API call succeeds. This data contains the top headlines in the business category.
+ */
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const API_KEY = "0db69991ed83415fa6f591a1924e45ef";

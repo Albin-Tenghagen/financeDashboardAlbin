@@ -11,11 +11,11 @@
 }
 /* styles.css */
 .card-hover-effect {
-  @apply transition-transform duration-300 ease-in-out hover:scale-105 focus:outline-none focus:ring-4  focus:ring-secondary;
+  @apply transition-transform duration-300 ease-in-out hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-4  focus:ring-secondary;
 }
 
 .button-focus-effect {
-  @apply transition-transform duration-300 ease-in-out  hover:bg-active hover:ring-4 hover:ring-secondary hover:cursor-pointer hover:scale-105 focus:outline-none focus:ring-4   focus:ring-secondary;
+  @apply transition-transform duration-300 ease-in-out  hover:bg-active hover:ring-4 hover:ring-secondary hover:cursor-pointer hover:scale-110 focus:outline-none focus:ring-4   focus:ring-secondary;
 }
 
 .link-hover-effect {

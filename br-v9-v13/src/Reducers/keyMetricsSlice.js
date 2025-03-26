@@ -1,3 +1,20 @@
+/**
+ * keyMetricsSlice.js
+ * This reducer manages the fetching and storing of key financial metrics for AAPL using Redux Toolkit.
+ * It fetches data from the Financial Modeling Prep API and stores it in both Redux and localStorage.
+ *
+ * Redux:
+ * - Dispatches `fetchKeyMetrics` when triggered (typically by a component).
+ *
+ * States handled:
+ * - `status`: Tracks the status of the API request (idle, loading, succeeded, failed).
+ * - `error`: Stores any error message if the fetch operation fails (e.g., network issues or API errors).
+ * - `data`: Holds the fetched key financial metrics for AAPL (such as P/E ratio, earnings, etc.).
+ *
+ * Local Storage:
+ * - The data is saved to and loaded from localStorage to persist across sessions.
+ */
+
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const apiKey = "4VaQvzEdvbD227Udssfv4wn00zgHLV3b";

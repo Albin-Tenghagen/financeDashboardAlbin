@@ -1,3 +1,20 @@
+/**
+ * historicalPricesSlice.js
+ * This reducer manages the fetching and storing of historical stock prices for AAPL using Redux Toolkit.
+ * It fetches historical price data from the Financial Modeling Prep API and stores it in both Redux and localStorage.
+ *
+ * Redux:
+ * - Dispatches `fetchHistoricalPrices` when triggered (typically by a component).
+ *
+ * States handled:
+ * - `status`: Tracks the status of the API request (idle, loading, succeeded, failed).
+ * - `error`: Stores any error message if the fetch operation fails (e.g., network issues or API errors).
+ * - `data`: Holds the fetched historical stock price data for AAPL (dates and price points).
+ *
+ * Local Storage:
+ * - The data is saved to and loaded from localStorage to persist across sessions.
+ */
+
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const apiKey = "4VaQvzEdvbD227Udssfv4wn00zgHLV3b";

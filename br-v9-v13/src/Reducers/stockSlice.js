@@ -1,3 +1,17 @@
+/**
+ * stockSlice.js
+ * This reducer manages the fetching and storing of stock price changes for a company (AAPL) using Redux Toolkit.
+ * It fetches data from the Financial Modeling Prep API and stores it in Redux.
+ *
+ * Redux:
+ * - Dispatches `fetchStockPriceChange` when triggered (typically by a component).
+ *
+ * States handled:
+ * - `loading`: Tracks the loading state for fetching stock price data.
+ * - `error`: Stores any error message if the fetch operation fails (e.g., network issues or API errors).
+ * - `priceChanges`: Holds the fetched stock price change data, which includes percentage changes for different periods (1D, 5D, 1M, etc.).
+ */
+
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const API_KEY = "TLoYbueDL9RUs9JZfiIKmp7uBFSilOzk";

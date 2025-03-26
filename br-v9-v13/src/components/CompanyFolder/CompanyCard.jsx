@@ -21,11 +21,11 @@ function CompanyCard({ company, removeCompany }) {
   };
 
   return (
-    <article className="relative flex-basis-[250px] bg-accent p-4 shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-lg mt-10 mb-10 mr-2">
+    <article className="relative flex-basis-[250px] bg-accent p-4 shadow-md rounded-lg card-hover-effect mt-10 mb-10 mr-2">
       {/* close button */}
       <button
         onClick={() => removeCompany(company.symbol)}
-        className="button-focus-effect bg-interactive absolute top-2 right-2  rounded-full w-8 h-8 flex items-center justify-center transition transform hover:scale-110 shadow-lgs"
+        className="button-focus-effect bg-interactive absolute top-2 right-2  rounded-full w-8 h-8 flex items-center justify-center transition transform  shadow-lgs"
       >
         <img className="w-8 h-8" src="/Icons/remove-add-dark/X.png" alt="" />
       </button>

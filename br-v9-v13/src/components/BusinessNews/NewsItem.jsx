@@ -36,7 +36,7 @@ function NewsItem({ new: newsItem }) {
         <img
           className="max-w-full max-h-64 object-contain mx-auto"
           src={newsItem.urlToImage || "/Alt.png"}
-          alt="News Image"
+          alt=""
         />
       </figure>
 

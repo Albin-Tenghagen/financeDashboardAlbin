@@ -15,7 +15,7 @@ Vi använde oss av Vite, React, React-router, redux-toolkit, Tailwind, Rechats.
 ## Installation
 
 1. Klona detta repot i VsCode
-   https://github.com/Samii02/financeDashboard/tree/main
+   https://github.com/Albin-Tenghagen/financeDashboardAlbin/tree/master
 
 2. Gå in i terminalen och skriv: cd br-v9-v13 så att du sitter i rätt mapp.
 
